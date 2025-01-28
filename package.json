@@ -9,10 +9,12 @@
     "build:scss": "sass --watch style.scss ./build/style.css",
     "start:backend": "tsx back-end/app/index.ts",
     "serve:frontend": "serve .",
-    "dev": "concurrently \"npm run build:scss\" \"npm run start:backend\" \"npm run serve:frontend\""
-  },
+    "build:ts": "tsc --watch",
+  "dev": "concurrently \"npm run build:scss\" \"npm run build:ts\" \"npm run start:backend\" \"npm run serve:frontend\""
+   },
   "dependencies": {
     "axios": "^1.7.9",
+    "cors": "^2.8.5",
     "express": "^4.21.2"
   },
   "devDependencies": {

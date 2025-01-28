@@ -1,3 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
 body {
-    background-color: aquamarine;
+  font-family: "Roboto", sans-serif;
+  background-color: #202124;
+  color: #e8eaed;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.dark-mode .search-container {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 500;
+  color: #e8eaed;
+  margin-bottom: 20px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.input-wrapper:focus-within + .results-list {
+  border: 1px solid #5f6368;
+  border-radius: 8px;
+  padding: 10px 15px;
+  background-color: #303134;
+}
+
+#search-input {
+  width: 100%;
+  padding: 10px 40px 10px 15px;
+  font-size: 1rem;
+  border: 1px solid #5f6368;
+  border-radius: 24px;
+  background-color: #303134;
+  color: #e8eaed;
+  outline: none;
+}
+
+#search-input::placeholder {
+  color: #9aa0a6;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #9aa0a6;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  border-radius: 8px;
+  background-color: #303134;
+  border: none;
+  max-height: 300px; 
+  overflow-y: auto; 
+  width: 100%; 
+  max-width: 500px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
+  position: absolute; /* Prevents the list from affecting container height */
+  top: 100%; /* Positions below the input */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%);
+  z-index: 100; 
+  .result-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #5f6368;
+    transition: background-color 0.2s ease;
+  }
+  .result-item:hover {
+    background-color: #4b4f55;
+  }
+  .result-item:last-child {
+    border-bottom: none;
+  }
+}
+.no-results {
+    padding: 10px 15px;
+    
 }
