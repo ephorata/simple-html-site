@@ -1,14 +1,18 @@
-import express from 'express'
+import express from 'express';
+import searchRoute from '../routes/search.route';
 
-const app = express()
+const app = express();
+const PORT = 3001;
 
-// TODO: update this so it makes a request to https://jsonplaceholder.typicode.com/comments?postId=3
-// and it returns a list of comments that match what the user entered
-// Bonus: cache results in memory for 5 mins
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
+// Middleware to parse JSON
+app.use(express.json());
 
-app.listen(3001, () => {
-    console.log('Server is running on port 3001')
-})
+// Register the search route
+app.use('/search', searchRoute);
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+export default app; // For testing purposes
