@@ -17,7 +17,7 @@ export const searchComments = async (query: string): Promise<Comment[]> => {
         // Fetch data from API
         const response = await axios.get<Comment[]>(API_URL);
         const filteredComments = response.data.filter((comment) =>
-            comment.name.toLowerCase().includes(query) || comment.email.toLowerCase().includes(query) || comment.body.toLowerCase().includes(query)
+            comment.name.toLowerCase().includes(query)
         );
 
         // Save results to cache
